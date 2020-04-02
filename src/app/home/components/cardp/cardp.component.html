@@ -1,1 +1,23 @@
-<p>cardp works!</p>
+<mat-card
+id="example-card" 
+[class]="!hovered ? 'animated infinite bounce slow': ''"
+(mouseenter)='hovered=false' (mouseleave)="hovered=true">
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title *ngIf="pikachu">{{pikachu.name}}</mat-card-title>
+      <mat-card-subtitle *ngIf="pikachu">Nro de Pokedex: {{pikachu.order}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="pikachu" [src]="pikachu.sprites.front_default" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
