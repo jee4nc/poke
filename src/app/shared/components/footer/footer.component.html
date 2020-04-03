@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row class="tool">
-        <span class="animated infinite wobble delay-1s slow">Footer</span>
+        <span
+        [class]="hovered ? 'animated infinite bounce slow' : ''"
+        (mouseenter)='hovered=true'
+        (mouseleave)='hovered=false'
+        >Footer</span>
     </mat-toolbar-row>
 </mat-toolbar>

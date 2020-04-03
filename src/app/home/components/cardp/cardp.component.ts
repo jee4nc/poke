@@ -10,7 +10,7 @@ import { Poke } from 'src/app/core/models/pokeModel';
 export class CardpComponent implements OnInit {
   pikachu: Poke;
   activateAnima: false;
-  hovered: any;
+  hovered: boolean;
   constructor(
     private pokeServices: PokeServiceService
   ) { }

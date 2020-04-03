@@ -1,7 +1,7 @@
 <mat-card
 id="example-card" 
-[class]="!hovered ? 'animated infinite bounce slow': ''"
-(mouseenter)='hovered=false' (mouseleave)="hovered=true">
+[class]="hovered ? 'animated infinite bounce slow': ''"
+(mouseenter)='hovered=true' (mouseleave)="hovered=false">
 
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
