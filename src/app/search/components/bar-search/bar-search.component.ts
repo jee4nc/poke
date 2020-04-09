@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bar-search.component.scss']
 })
 export class BarSearchComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
+  }
+  imprimir(box) {
+    console.log(box);
   }
 
 }

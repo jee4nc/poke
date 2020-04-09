@@ -1,7 +1,14 @@
 <mat-form-field class="example-full-width">
     <mat-label>Nro en Pokedex</mat-label>
-    <input matInput placeholder="Ingrese ID Pokemon" value="">
+    <input matInput placeholder="Ingrese ID Pokemon"
+    class="input" 
+    value=""
+    #box
+    (keyup)="0"
+    >
 </mat-form-field>
 <div class="containerButton">
-    <button mat-raised-button color="primary">Buscar Pokemon</button>
+    <button mat-raised-button color="primary"
+    (click)="imprimir(box.value)"
+    >Buscar Pokemon</button>
 </div>
