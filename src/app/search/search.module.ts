@@ -5,6 +5,7 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchLayoutComponent } from './components/search-layout/search-layout.component';
 import { BarSearchComponent } from './components/bar-search/bar-search.component';
 import { MaterialModule } from './../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,9 @@ import { MaterialModule } from './../material/material.module';
   imports: [
     CommonModule,
     SearchRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SearchModule { }
