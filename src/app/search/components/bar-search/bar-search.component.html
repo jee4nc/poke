@@ -1,11 +1,10 @@
-<form [formGroup]="checkoutform">
+<form [formGroup]="checkoutform" (ngSubmit)="onSubmit($event)">
     <mat-form-field class="example-full-width">
         <mat-label>Nro en Pokedex</mat-label>
         <input matInput placeholder="Ingrese ID Pokemon"
         class="input" 
         value=""
-        #box
-        (keyup)="0"
+
         formControlName="pokeid"
         >
     </mat-form-field>
@@ -17,7 +16,8 @@
         <button mat-raised-button color="primary"
         class="button"
         [disabled]="checkoutform.invalid"
-        (click)="imprimir(box.value)"
+ 
+        type="submit"
         >Buscar Pokemon</button>
     </div>
 </form>

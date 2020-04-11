@@ -15,4 +15,7 @@ export class PokeServiceService {
   getPikachu() {
     return this.http.get<Poke>(`${environment.API_URL}pokemon/pikachu`);
   }
+  getPokebyID(id: number) {
+    return this.http.get<Poke>(`${environment.API_URL}pokemon/${id}`);
+  }
 }
