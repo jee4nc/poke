@@ -18,9 +18,6 @@ export class BarSearchComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  imprimir(box) {
-    console.log(box);
-  }
   private buildForm() {
     this.checkoutform = this.formbuilder.group({
       pokeid: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
@@ -29,9 +26,8 @@ export class BarSearchComponent implements OnInit {
   get pokeidField() {
     return this.checkoutform.get('pokeid');
   }
-  onSubmit(event) {
+  onSubmit(event: Event) {
     event.preventDefault();
-    this.checkoutform.reset();
     if (this.checkoutform.valid) {
       const poked = this.checkoutform.value;
       this.pokeservice.getPokebyID(poked.pokeid)
@@ -39,9 +35,9 @@ export class BarSearchComponent implements OnInit {
         console.log(newPoke);
       });
     } else {
+      console.log(this.checkoutform.value);
       console.log('error');
     }
-    console.log(this.checkoutform.value);
     }
   }
 

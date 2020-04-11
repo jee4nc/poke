@@ -2,21 +2,17 @@
     <mat-form-field class="example-full-width">
         <mat-label>Nro en Pokedex</mat-label>
         <input matInput placeholder="Ingrese ID Pokemon"
-        class="input" 
-        value=""
-
-        formControlName="pokeid"
-        >
+        class="input"
+        formControlName="pokeid">
     </mat-form-field>
     <div *ngIf="checkoutform.get('pokeid').errors && checkoutform.get('pokeid').dirty">
         <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('required')">Este campo es obliatorio</p>
-        <p  class="pp" *ngIf="checkoutform.get('pokeid').hasError('pattern')">Solo numeros</p>
+        <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('pattern')">Solo numeros</p>
     </div>
     <div class="containerButton">
         <button mat-raised-button color="primary"
         class="button"
         [disabled]="checkoutform.invalid"
- 
         type="submit"
         >Buscar Pokemon</button>
     </div>
