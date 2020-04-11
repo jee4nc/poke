@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PokeServiceService} from './../../../core/services/poke-service.service';
+import {Router} from '@angular/router';
+import { Poke } from 'src/app/core/models/pokeModel';
 
 @Component({
   selector: 'app-bar-search',
@@ -9,9 +11,11 @@ import { PokeServiceService} from './../../../core/services/poke-service.service
 })
 export class BarSearchComponent implements OnInit {
   checkoutform;
+  pokemon: Poke;
   constructor(
     private formbuilder: FormBuilder,
-    private pokeservice: PokeServiceService
+    private pokeservice: PokeServiceService,
+    private router: Router
   ) {
     this.buildForm();
    }
@@ -30,9 +34,12 @@ export class BarSearchComponent implements OnInit {
     event.preventDefault();
     if (this.checkoutform.valid) {
       const poked = this.checkoutform.value;
-      this.pokeservice.getPokebyID(poked.pokeid)
+      const id = poked.pokeid;
+      this.pokeservice.getPokebyID(id)
       .subscribe((newPoke) => {
         console.log(newPoke);
+        this.pokemon = newPoke;
+        // this.router.navigate([`./search/${poked.pokeid}`]);
       });
     } else {
       console.log(this.checkoutform.value);

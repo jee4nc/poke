@@ -17,3 +17,9 @@
         >Buscar Pokemon</button>
     </div>
 </form>
+
+<div>
+    <p *ngIf="pokemon">nombre: {{pokemon.name}}</p>
+    <p *ngIf="pokemon">nombre: {{pokemon.order}}</p>
+    <img *ngIf="pokemon" [src]="pokemon.sprites.front_default" alt="">
+</div>
