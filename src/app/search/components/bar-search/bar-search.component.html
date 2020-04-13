@@ -31,7 +31,7 @@ id="example-card"
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title *ngIf="pokemon">{{pokemon.name}}</mat-card-title>
-      <mat-card-subtitle *ngIf="pokemon">Nro de Pokedex: {{pokemon.order}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="pokemon">Nro en la API: {{pokemon.order}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image *ngIf="pokemon" [src]="pokemon.sprites.front_default" alt="Photo of a Shiba Inu">
     <mat-card-content>
@@ -46,4 +46,7 @@ id="example-card"
       <button mat-button>SHARE</button>
     </mat-card-actions>
 </mat-card>
+<div class="error">
+   <h2> {{error}}</h2> <!-- Error cargado desde TS  -->
+</div>
 </div>

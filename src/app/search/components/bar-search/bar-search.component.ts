@@ -13,6 +13,7 @@ export class BarSearchComponent implements OnInit {
   checkoutform;
   pokemon: Poke;
   hovered: boolean; // Esto permite activar/desactivar animations
+  error: any;
   constructor(
     private formbuilder: FormBuilder,
     private pokeservice: PokeServiceService,
@@ -41,10 +42,13 @@ export class BarSearchComponent implements OnInit {
         console.log(newPoke);
         this.pokemon = newPoke;
         // this.router.navigate([`./search/${poked.pokeid}`]);
+      }, error => { // Ademas del subcribe, error permite poder trabajar los errores del http
+        const mensaje = 'Error al procesar la busqueda';
+        this.error = mensaje;
+        console.log(error);
       });
     } else {
-      console.log(this.checkoutform.value);
-      console.log('error');
+      console.log('entro al error');
     }
     }
   }
