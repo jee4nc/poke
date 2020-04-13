@@ -12,6 +12,7 @@ import { Poke } from 'src/app/core/models/pokeModel';
 export class BarSearchComponent implements OnInit {
   checkoutform;
   pokemon: Poke;
+  hovered: boolean; // Esto permite activar/desactivar animations
   constructor(
     private formbuilder: FormBuilder,
     private pokeservice: PokeServiceService,

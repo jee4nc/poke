@@ -1,3 +1,33 @@
 .pp{
     color: white;
 }
+.k{
+    padding-top: 30px;
+}
+.containerCard {
+    padding-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    justify-content: center;
+    grid-template-areas: "a hola b";
+
+}
+
+.containerInput {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    grid-template-areas: "a input b";
+}
+
+#input2 {
+    max-width: 100%;
+    grid-area: input;
+    justify-self: center;
+}
+
+#example-card {
+    max-width: 100%;
+    grid-area: hola;
+}

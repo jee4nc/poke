@@ -1,25 +1,49 @@
-<form [formGroup]="checkoutform" (ngSubmit)="onSubmit($event)">
-    <mat-form-field class="example-full-width">
-        <mat-label>Nro en Pokedex</mat-label>
-        <input matInput placeholder="Ingrese ID Pokemon"
-        class="input"
-        formControlName="pokeid">
-    </mat-form-field>
-    <div *ngIf="checkoutform.get('pokeid').errors && checkoutform.get('pokeid').dirty">
-        <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('required')">Este campo es obliatorio</p>
-        <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('pattern')">Solo numeros</p>
-    </div>
-    <div class="containerButton">
-        <button mat-raised-button color="primary"
-        class="button"
-        [disabled]="checkoutform.invalid"
-        type="submit"
-        >Buscar Pokemon</button>
-    </div>
-</form>
+<div class="containerInput">
+    <form [formGroup]="checkoutform" (ngSubmit)="onSubmit($event)" id="input2">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nro en Pokedex</mat-label>
+            <input matInput placeholder="Ingrese ID Pokemon"
+            class="input"
+            formControlName="pokeid">
+        </mat-form-field>
+        <div *ngIf="checkoutform.get('pokeid').errors && checkoutform.get('pokeid').dirty">
+            <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('required')">Este campo es obliatorio</p>
+            <p class="pp" *ngIf="checkoutform.get('pokeid').hasError('pattern')">Solo numeros</p>
+        </div>
+        <div class="containerButton">
+            <button mat-raised-button color="primary"
+            class="button"
+            [disabled]="checkoutform.invalid"
+            type="submit"
+            >Buscar Pokemon</button>
+        </div>
+    </form>
+</div>
 
-<div>
-    <p *ngIf="pokemon">nombre: {{pokemon.name}}</p>
-    <p *ngIf="pokemon">nombre: {{pokemon.order}}</p>
-    <img *ngIf="pokemon" [src]="pokemon.sprites.front_default" alt="">
+
+<div class="containerCard">
+    <mat-card
+id="example-card" 
+[class]="hovered ? 'animated bounce slow': ''"
+(mouseenter)='hovered=true' (mouseleave)="hovered=false"
+*ngIf="pokemon">
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title *ngIf="pokemon">{{pokemon.name}}</mat-card-title>
+      <mat-card-subtitle *ngIf="pokemon">Nro de Pokedex: {{pokemon.order}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="pokemon" [src]="pokemon.sprites.front_default" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
 </div>
